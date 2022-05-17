@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '3.0.2'
 
+gem 'devise'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.4'
 gem 'sprockets-rails'
 gem 'pg', '~> 1.1'
