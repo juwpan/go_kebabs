@@ -1,16 +1,52 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>BbqWork</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Bbq" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
 
-  <body>
-    <%= yield %>
-  </body>
+    <%= javascript_importmap_tags %>
+    
+</head>
+<body>
+  <div class="navbar navbar-expand-lg">
+    <div class="container">
+      <%# Для вывода названия приложения используем хелпер I18n.t %>
+      <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
+
+      <div class="navbar-collapse navbar-brand">
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <li><%= link_to 'Профиль', current_user, class: 'mr' %></li>
+            <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+            <li><%= link_to 'Войти', new_user_session_path , class: 'mr'%></li>
+            <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+
+       
+       <%= yield %>
+      </div>
+      <div class="col-lg-3">
+      </div>
+    </div>
+
+    <footer class="mt-2">
+      <%# Для вывода названия компании используем хелпер I18n.t %>
+      <p>&copy; <%= t 'app.company' %> 2016</p>
+    </footer>
+  </div>
+</body>
 </html>
