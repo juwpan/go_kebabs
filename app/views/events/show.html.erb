@@ -21,10 +21,12 @@
             <div class="buffer-both">
               <%= link_to 'Изменить', edit_event_path(@event),
                 class: 'btn btn-primary' %>
-
-                <%= link_to 'Удалить', event_path,
-                  data: { turbo_method: "delete", turbo_confirm: t("are_you_sure") },
-                  class: 'btn btn-danger' %>
+              
+          <%= button_to 'Удалить', event_path(@event),
+               method: "delete",
+                form: {
+                 data: {turbo_confirm: "are_you_sure" }
+                }, class: 'btn btn-danger' %>
             </div>
           <% end %>
         </div>
