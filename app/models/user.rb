@@ -1,21 +1,15 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  include Gravtastic
+  # include Gravtastic
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
   # Юзер может создавать много событий
   has_many :events, dependent: :delete_all
-  has_many :comments, dependent: :delete_all
-  has_many :subscriptions, dependent: :delete_all
+  # has_many :comments, dependent: :delete_all
+  # has_many :subscriptions, dependent: :delete_all
 
-  has_many :events
-
-  gravtastic(secure: true, filetype: :png, size: 100, default: 'wavatar')
+  # gravtastic(secure: true, filetype: :png, size: 100, default: 'wavatar')
 
 
   validates :name, presence: true, length: {maximum: 35}
