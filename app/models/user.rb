@@ -17,12 +17,12 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :email, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/
 
-  after_commit :link_subscriptions, on: :create
+  # after_commit :link_subscriptions, on: :create
 
   private
 
-  def link_subscriptions
-    Subscription.where(user_id: nil, user_email: self.email)
-      .update_all(user_id: self.id)
-  end
+  # def link_subscriptions
+  #   Subscription.where(user_id: nil, user_email: self.email)
+  #     .update_all(user_id: self.id)
+  # end
 end
