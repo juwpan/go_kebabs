@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # include Gravtastic
+  include Gravtastic
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
@@ -9,8 +9,7 @@ class User < ApplicationRecord
   # has_many :comments, dependent: :delete_all
   # has_many :subscriptions, dependent: :delete_all
 
-  # gravtastic(secure: true, filetype: :png, size: 100, default: 'wavatar')
-
+  gravtastic(secure: true, filetype: :png, size: 100, default: 'wavatar')
 
   validates :name, presence: true, length: {maximum: 35}
   
