@@ -26,8 +26,10 @@ class EventsController < ApplicationController
 
     if @event.save
       redirect_to @event, notice: I18n.t('controllers.events.created')
+      # debugger
     else
       render :new
+      # debugger
     end
   end
 
