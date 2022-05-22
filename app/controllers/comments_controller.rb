@@ -31,6 +31,7 @@ class CommentsController < ApplicationController
    end
  
    private
+   
    def set_event
      @event = Event.find(params[:event_id])
    end
