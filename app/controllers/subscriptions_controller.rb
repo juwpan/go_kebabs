@@ -5,9 +5,13 @@ class SubscriptionsController < ApplicationController
   # Задаем подписку, которую юзер хочет удалить
   before_action :set_subscription, only: [:destroy]
 
+  def show
+  end
+
   def create
     # Болванка для новой подписки
     @new_subscription = @event.subscriptions.build(subscription_params)
+    
     @new_subscription.user = current_user
   
     if @new_subscription.save
