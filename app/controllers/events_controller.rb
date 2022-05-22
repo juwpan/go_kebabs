@@ -26,10 +26,8 @@ class EventsController < ApplicationController
 
     if @event.save
       redirect_to @event, notice: I18n.t('controllers.events.created')
-      # debugger
     else
       render :new
-      # debugger
     end
   end
 
@@ -44,7 +42,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     
-    redirect_to events_url, status: :see_other, notice: I18n.t('controllers.events.destroyed')
+    redirect_to events_url, status: :see_other, alert: I18n.t('controllers.events.destroyed')
   end
 
   private
