@@ -16,6 +16,10 @@ gem "jsbundling-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "cssbundling-rails"
+
+gem 'carrierwave'
+gem "rmagick"
+
 gem "bootsnap", require: false
 
 # gem "sassc-rails"

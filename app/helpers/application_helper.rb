@@ -1,6 +1,10 @@
 module ApplicationHelper
   def user_avatar(user)
-    user.gravatar_url
+    if user.avatar?
+      user.avatar.url
+    else
+      user.gravatar_url
+    end
   end
 
   def user_noname(user)

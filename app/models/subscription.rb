@@ -9,10 +9,7 @@ class Subscription < ApplicationRecord
   validates :user_email, presence: true, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/, unless: -> { user.present? }
   validate :user_exist, unless: -> { user.present? }
   
-  def user_exist
-    errors.add(:user_email, 'занят') if User.where(email: user_email.downcase).exists?
-  end
-
+  
   def user_name
     if user.present?
       user.name
@@ -27,5 +24,11 @@ class Subscription < ApplicationRecord
     else
       super
     end
+  end
+  
+  private
+
+  def user_exist
+    errors.add(:user_email, :busy) if User.where(email: user_email.downcase).exists?
   end
 end
