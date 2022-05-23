@@ -25,10 +25,10 @@ class Subscription < ApplicationRecord
       super
     end
   end
-  
+
   private
 
   def user_exist
-    errors.add(:user_email, :busy) if User.where(email: user_email.downcase).exists?
+    errors.add(:user_email, :another_user) if User.where(email: user_email.downcase).exists?
   end
 end

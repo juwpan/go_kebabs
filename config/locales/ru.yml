@@ -1,7 +1,6 @@
 ru:
   are_you_sure: Вы уверены?
   destroy_confirm: 'Вы уверены, что хотите удалить этого подписчика?'
-  busy: занят другим пользователем.
 
   subscriptions:
     created: 'Вы подписаны на это событие'
@@ -15,17 +14,31 @@ ru:
 
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
-  
+     
   activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              another_user: занят другим пользователем.
+              
     attributes:
       event:
         title: "Название"
         address: "Место проведения"
         datetime: "Дата и время"
         description: "Описание"
+      comment:
+        body: Комментарий
+        user_name: Имя пользователя
+      subscription:
+        user_email: Почта
+        user_name: Имя пользователя
+        user: Пользователь
 
       user:
-        email: Email
+        email: Почта
         name: Имя
         password: Пароль
         password_confirmation: Подтверждение пароля
@@ -46,7 +59,7 @@ ru:
         reset_password_sent_at: Дата отправки сброса пароля
         reset_password_token: Токен сброса пароля
         sign_in_count: Количество входов
-        unconfirmed_email: Неподтвержденный email
+        unconfirmed_email: Неподтвержденная почта
         unlock_token: Токен разблокировки
         updated_at: Дата обновления
 
@@ -72,13 +85,15 @@ ru:
     updated: 'Вы обновили свой профиль'
 
   models:
-    event: "Событие"
     user:
-      few: Пользователя
-      many: Пользователей
-      one: Пользователь
-      other: Пользователи
-      event: "Событие"
+    few: Пользователя
+    many: Пользователей
+    one: Пользователь
+    other: Пользователи
+    comment: Комментарий
+    event: Событие
+    photo: Фотография
+    subscription: Подписка
 
   devise:
     confirmations:
@@ -108,9 +123,9 @@ ru:
         subject: Инструкции по подтверждению учетной записи
       email_changed:
         greeting: Здравствуйте, %{recipient}!
-        message: Мы пытаемся связаться с вами, что бы сообщить, что ваш email был изменен на %{email}.
+        message: Мы пытаемся связаться с вами, что бы сообщить, что ваша почта был изменен на %{email}.
         message_unconfirmed:
-        subject: Email изменен
+        subject: Почта изменена
       password_change:
         greeting: Приветствуем, %{recipient}!
         message: Мы пытаемся связаться с вами, что бы сообщить, что ваш пароль был изменен.
@@ -213,6 +228,7 @@ ru:
         other: "сохранение не удалось из-за %{count} ошибки:"
 
   format: "%{attribute} %{message}"
+  Body: dawda
   messages:
     accepted: нужно подтвердить
     blank: не может быть пустым
