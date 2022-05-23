@@ -38,6 +38,7 @@ ru:
         user: Пользователь
 
       user:
+        avatar: Аватарка
         email: Почта
         name: Имя
         password: Пароль
