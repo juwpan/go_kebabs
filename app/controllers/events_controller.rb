@@ -47,6 +47,11 @@ class EventsController < ApplicationController
 
   private
 
+  def subscription_params
+    # .fetch разрешает в params отсутствие ключа :subscription
+    params.fetch(:subscription, {}).permit(:user_email, :user_name)
+  end
+
   def set_current_user_event
     @event = current_user.events.find(params[:id])
   end

@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def user_noname(user)
-    asset_path('user.png')
+    asset_path('noname.png')
   end
 
 

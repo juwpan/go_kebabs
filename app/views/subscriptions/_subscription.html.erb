@@ -1,18 +1,10 @@
 <span class="subscription">
 
   <% if subscription.user.present? %>
-    <div>
-      <%= render partial: 'users/user', object: subscription.user %>
-    </div>
+    <%= render partial: 'users/user', object: subscription.user %>
   <% else %>
-
-  <span class="user">
-    <span class="user-avatar">
-      <%= image_tag(user_noname(subscription.user_name), class: 'img-icon mt-1') %>
-      <%= subscription.user_name %>
-    </span>
-    <span>
-
+    <%= image_tag(user_noname(subscription.user_name), class: 'img-icon mt-1') %>
+    <em><%= subscription.user_name %></em>
   <% end %>
 
   <% if current_user_can_edit?(subscription) %>
