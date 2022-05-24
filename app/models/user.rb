@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
 
+  has_many :events
+
   gravtastic(secure: true, filetype: :png, size: 100, default: 'wavatar')
 
   validates :name, presence: true, length: {maximum: 35}

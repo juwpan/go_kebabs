@@ -8,8 +8,6 @@
         <div class="col-md-6">
           <div class="event-description">
             <h1><%= @event.title %></h1>
-            <%# Для перевода времени в русский формат используем I18n %>
-            <%# Формат при этом используется из гема russian %>
             <h3><%= l @event.datetime, format: :short %></h3>
 
             <h3><small><%= link_to @event.address,
@@ -38,6 +36,16 @@
 
   <div class="row">
     <div class="col-md-8">
+      <div class="event-photos">
+        <div class="event-photos-gallery">
+          <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+        </div>
+
+        <div class="event-photo-form">
+          <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+        </div>
+      </div>
+
       <div class="event-comments buffer-top">
         <%= render partial: 'comments/form',
           locals: {comment: @new_comment || @event.comments.build} %>
@@ -67,7 +75,6 @@
         </div>
       <% end %>
       
-      <%# ------------------------ %>
       <div class="event-subscription-form">
         <% unless current_user_can_edit?(@event) %>
         <h4>Я пойду:</h4>

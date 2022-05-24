@@ -1,0 +1,22 @@
+<%# Паршал для вывода отдельной фотографии %>
+<div class="event-photo buffer-both">
+
+  <%= link_to image_tag(photo.photo.thumb.url) if photo.photo.url %>
+
+  <%# Показываем не только фотку, но и юзаре, который её добавил %>
+  <b>Добавил:</b>
+    <%= render partial: 'users/user', object: photo.user  %>
+ 
+   <button class="btn btn-default btn-sm" >
+   <% if current_user_can_edit?(photo) %>
+     <%= link_to(
+           'Удалить фото',
+          event_photo_path(photo.event, photo),
+            method: "delete",
+             data: { confirm: t('destroy_photo')
+                },
+                 class: 'btn btn-danger p-0 m-3'
+        ) %>
+    <% end %>
+    
+</div>

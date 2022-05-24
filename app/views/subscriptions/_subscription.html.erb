@@ -7,14 +7,23 @@
     <em><%= subscription.user_name %></em>
   <% end %>
 
-  <% if current_user_can_edit?(subscription) %>
+  <% if  current_user_can_edit?(subscription)%>
      <%= link_to(
-           'Удалить подписчика',
+           'Удалить',
           event_subscription_path(subscription.event, subscription),
             method: "delete",
              data: { confirm: t('destroy_confirm')
                 },
                  class: 'btn btn-danger m-3'
+    #     ) %>
+    # <% else %>
+    #     <%= link_to(
+    #        'отписаться',
+    #       event_subscription_path(subscription.event, subscription),
+    #         method: "delete",
+    #          data: { confirm: t('unsubscribe')
+    #             },
+    #              class: 'btn btn-danger m-3'
         ) %>
   <% end %>
 </span>

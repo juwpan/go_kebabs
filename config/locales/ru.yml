@@ -1,6 +1,11 @@
 ru:
+  
+  photo: Фото
+  photo_load: Загрузить
   are_you_sure: Вы уверены?
   destroy_confirm: 'Вы уверены, что хотите удалить этого подписчика?'
+  unsubscribe: 'Вы уверены, что хотите отписаться?'
+  destroy_photo: 'Вы уверены, что хотите удалить это фото?'
 
   subscriptions:
     created: 'Вы подписаны на это событие'
@@ -22,6 +27,10 @@ ru:
           attributes:
             user_email:
               another_user: занят другим пользователем.
+              ban: "на свое событие не подписаться"
+            user:
+              ban: ".На свое событие не подписаться"
+
               
     attributes:
       event:
@@ -36,7 +45,7 @@ ru:
         user_email: Почта
         user_name: Имя пользователя
         user: Пользователь
-
+     
       user:
         avatar: Аватарка
         email: Почта
@@ -73,29 +82,31 @@ ru:
       created: 'Вы создали аккаунт'
       updated: 'Вы обновили данные аккаунта'
       destroyed: 'Вы удалили аккаунт:(. Вы уверены что хотите покинуть нас?'
-
+    
     subscriptions:
       created: 'Вы подписались на событие.'
       destroyed: 'Вы удалили подписчика.'
-
+    
     comments:
       created: 'Новый коментария создан'
       destroyed: 'Коментария удалён'
 
+    photos:
+        error: 'Что-то не так с фоткой'
+        created: 'Вы добавили фотографию к событию'
+        destroyed: 'Вы удалили фотку'
+
+     
   users:
     updated: 'Вы обновили свой профиль'
 
   models:
-    user:
-    few: Пользователя
-    many: Пользователей
-    one: Пользователь
-    other: Пользователи
     comment: Комментарий
     event: Событие
     photo: Фотография
     subscription: Подписка
-
+    user: Пользователь
+  
   devise:
     confirmations:
       confirmed: Ваш адрес эл. почты успешно подтвержден.
@@ -213,6 +224,7 @@ ru:
 
   errors:
     messages:
+      extension_whitelist_error: неизвестный формат файла
       record_invalid: "Возникли ошибки: %{errors}"
       restrict_dependent_destroy:
       has_one: "Невозможно удалить запись, так как существует зависимость: %{record}"
@@ -229,7 +241,6 @@ ru:
         other: "сохранение не удалось из-за %{count} ошибки:"
 
   format: "%{attribute} %{message}"
-  Body: dawda
   messages:
     accepted: нужно подтвердить
     blank: не может быть пустым
@@ -250,7 +261,7 @@ ru:
     odd: может иметь лишь нечетное значение
     other_than: должно отличаться от %{count}
     present: нужно оставить пустым
-    required: не может отсутствовать
+   
     taken: уже существует
     too_long:
       one: слишком большой длины (не может быть больше чем %{count} символ)

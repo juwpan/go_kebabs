@@ -3,3 +3,7 @@
   width: auto;
   border-radius: 50%;
 }
+
+img.img-sm-icon {
+  height: 20px;
+}

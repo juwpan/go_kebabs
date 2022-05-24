@@ -38,3 +38,8 @@
 .thumbnail-inner {
   padding: 20px 4px 4px;
 }
+
+.alert {
+  margin-left: -0.7em;
+  padding: 10px;
+}

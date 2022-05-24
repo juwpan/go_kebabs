@@ -1,5 +1,6 @@
 .fotter-color {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(170, 169, 169);
+  border-bottom: 1px solid rgb(117, 113, 113);
 }
 
 a.color {
