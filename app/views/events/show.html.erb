@@ -61,6 +61,7 @@
       <div class="event-owner">
         <h4><em>Зовет:</em></h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
+        <hr>
       </div>
 
       <% if @event.subscriptions.exists? %>
