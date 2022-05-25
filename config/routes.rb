@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :photos
   devise_for :users
 
   root "events#index"
@@ -12,7 +11,6 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :destroy]
   end
 
-  resources :subscriptions
   resources :users, only: [:show, :edit, :update, :destroy]
 end
 

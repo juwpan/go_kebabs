@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_130747) do
     t.datetime "datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -79,8 +79,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_130747) do
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "users"
   add_foreign_key "events", "users"
-  add_foreign_key "photos", "events"
-  add_foreign_key "photos", "users"
   add_foreign_key "subscriptions", "events"
   add_foreign_key "subscriptions", "users"
 end

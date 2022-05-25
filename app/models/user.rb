@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
 
-  has_many :events
+  has_many :photos
 
   gravtastic(secure: true, filetype: :png, size: 100, default: 'wavatar')
 
