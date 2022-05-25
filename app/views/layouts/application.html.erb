@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Bbq" %></title>
+  <%= csrf_meta_tags %> 
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+<body>
+
+
+  <div class="navbar navbar-expand-lg fotter-color mb-3">
+    <div class="container">
+      <%# Для вывода названия приложения используем хелпер I18n.t %>
+      <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
+
+      <div class="navbar-collapse navbar-brand">
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <li><%= link_to t('links.profile'), current_user, class: 'mr color' %></li>
+            <li><%= link_to t('links.log_out'), destroy_user_session_path, :method => :delete, class: 'color'%></li>
+          <% else %>
+            <li><%= link_to t('links.log_in'), new_user_session_path , class: 'mr color'%></li>
+            <li><%= link_to t('links.sign_up'), new_user_registration_path, class: 'color' %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+
+        <%= render "devise/shared/flash" %>
+       
+       <%= yield %>
+       
+      </div>
+      <div class="col-lg-3">
+      </div>
+
+    <footer class="mt-2">
+      <%# Для вывода названия компании используем хелпер I18n.t %>
+      <p>&copy; <%= t 'app.company' %> 2016</p>
+    </footer>
+
+    </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,37 @@
+body {
+  background: rgba(237, 237, 237, 0.314) url('background.png') center center fixed no-repeat;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  background-size: cover;
+}
+
+.fotter-color {
+  background-color: rgba(0, 0, 0, 0.699);
+  border-bottom: 1px solid rgb(117, 113, 113);
+}
+
+a.color {
+  color: rgb(255, 255, 255);
+}
+
+a.title-color {
+  color: rgba(156, 220, 17, 0.816);
+}
+
+a.navbar-brand {
+  color: rgb(255, 255, 255);
+}
+
+.img-color-dark {
+-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+filter: grayscale(100%);
+}
+
+.color-comments {
+  background-color: rgba(255, 255, 255, 0.709);
+}
+
+.color-comments-user {
+  background-color: rgb(234, 230, 230);
+}

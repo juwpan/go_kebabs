@@ -1,0 +1,22 @@
+<div class="buffer-bottom color-comments-user">
+  <p class="color-comments text-pre-line"><%= comment.body %></p>
+  <p>
+    <span>
+      <% if comment.user.present? %>
+        От: <%= render partial: 'users/user', object: comment.user %>
+      <% else %>
+        От: <strong><%= comment.user_name %></strong>
+      <% end %>
+    </span>
+    <em><%= l comment.created_at, format: :short %></em>
+
+    <% if current_user_can_edit?(comment) %>
+      <%= link_to(
+            t('links.delete'), event_comment_path(comment.event, comment),
+            method: :delete, data: {confirm: t('.destroy_confirm')},
+            class: 'btn btn-secondary p-1 m-3'
+        ) %>
+    <% end %>
+  <hr class="comments">
+  </p>
+</div>
