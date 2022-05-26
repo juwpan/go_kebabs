@@ -16,9 +16,10 @@ gem "jsbundling-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "cssbundling-rails"
+gem "aws-sdk-s3"
+gem 'image_processing'
 
 gem "font-awesome-rails"
-gem 'fog-aws'
 
 gem 'carrierwave'
 gem "rmagick"
