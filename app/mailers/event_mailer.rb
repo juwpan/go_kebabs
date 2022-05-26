@@ -1,4 +1,11 @@
 class EventMailer < ApplicationMailer
+  def photo(event, photo, email)
+    @event = event
+    @name = photo.user.name
+
+    mail to: email, subject: "Добавлено новое фото для #{event.title}"
+  end
+
   def subscription(event, subscription)
     @email = subscription.user_email
     @name = subscription.user_name

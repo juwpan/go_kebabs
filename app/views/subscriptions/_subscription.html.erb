@@ -1,4 +1,4 @@
-<span class="subscription">
+<p class="subscription">
 
   <% if subscription.user.present? %>
     <%= render partial: 'users/user', object: subscription.user %>
@@ -16,4 +16,5 @@
            class: 'btn btn-secondary p-1 m-3'
         ) %>
   <% end %>
-</span>
+  <hr>
+</p>

@@ -1,5 +1,30 @@
 ru:
  
+  event_mailer:
+    comment:
+      title: 'Новый комментарий'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    subscription:
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    photo:
+      title: 'Новое фото'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+
+
   links:
     delete: Удалить
     delete_account: Удалить мой аккаунт
@@ -52,23 +77,7 @@ ru:
     created: 'Вы подписаны на это событие'
     destroyed: 'Участник отписан'
     error: 'Подписка/отписка не сработала'
-
-  event_mailer:
-    comment:
-      title: 'Новый комментарий'
-      author: 'Автор'
-      event: 'Событие'
-      datetime: 'Состоится'
-      owner: 'Организатор'
-    subscription:
-      title: 'Новая подписка'
-      name: 'Имя'
-      email: 'Email'
-      author: 'Автор'
-      event: 'Событие'
-      datetime: 'Состоится'
-      owner: 'Организатор'
-
+    
   comments:
     destroyed: 'Комментарий удален'
     created: 'Ваш комментарий добавлен'
