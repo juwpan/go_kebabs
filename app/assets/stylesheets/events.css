@@ -1,0 +1,61 @@
+.event-info {
+  position: relative;
+  color: white;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.event-background {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+
+  background-size: cover;
+  background-position: center;
+
+  filter: grayscale(100%);
+  
+  
+  filter: blur(5px);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+}
+
+.event-description * {
+  color: white;
+}
+
+.event-description a {
+  color: #ffffff;
+}
+
+.event-description small {
+  color: #ffffff;
+}
+
+.event-info-inner {
+  background:rgba(0, 0, 0, 0.4);
+}
+
+.event-map {
+  margin: 20px 0;
+  width: 100%;
+  height: 400px;
+}
+
+.form-group-photo {
+  max-width: 100px;
+}
+
+.column {
+  text-align: center;
+  float: left;
+  height: 35%;
+
+  padding: 5px;
+}

@@ -1,0 +1,12 @@
+.text-pre-line {
+  white-space: pre-line
+}
+
+.event-author {
+  font-size: 15px;
+  color: #000;
+}
+
+.text-yellow {
+  color: rgb(16, 117, 58);
+}

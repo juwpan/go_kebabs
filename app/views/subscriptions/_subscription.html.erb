@@ -1,0 +1,14 @@
+<p class="subscription">
+  <% if subscription.user.present? %>
+    <%= render partial: 'users/user', object: subscription.user %>
+  <% else %>
+    <%= image_tag(user_noname(subscription.user_name), class: 'img-icon mt-1') %>
+    <em><%= subscription.user_name %></em>
+  <% end %>
+
+  <% if current_user_can_edit?(subscription) %>
+    <%= link_to fa_icon('x-circle-fill'), event_subscription_path(subscription.event, subscription),
+      data: { turbo_method: :delete, turbo_confirm: t('destroy_confirm') } %>
+  <% end %>
+  <hr>
+</p>

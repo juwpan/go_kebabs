@@ -1,0 +1,18 @@
+<%= form_for [@event, photo], html: { multipart: true } do |f| %>
+
+  <div class="form-group-photo">
+    <p><em><h3><%= f.label I18n.t(:photo) %>:</h3></em></p>
+    <%= f.file_field :photo %>
+  </div>
+
+<div data-turbo="false">
+  <div class="actions">
+    <%= f.submit t('submit.load'), class: 'btn btn-dark mt-3' %>
+  </div>
+</div>
+
+<div class="p-2 mt-2">
+  <%= render partial: 'partials/form_errors', locals: {model: photo} %>
+</div>
+
+<% end %>

@@ -1,0 +1,7 @@
+<%= render partial: 'users/user', object: @event.user %>
+  <% if current_user_can_edit?(photo) %>
+    <%= link_to fa_icon('x-square-fill'), event_photo_path(photo.event, photo),
+          data: {
+          turbo_method: :delete, turbo_confirm: t('destroy_photo')
+          } %>
+<% end %>

@@ -1,0 +1,25 @@
+.img-icon-circle {
+  height: 300px;
+  width: auto;
+  border-radius: 50%;
+}
+
+img.img-icon-author {
+  height: 50px;
+  border-radius: 50%;
+}
+
+img.img-icon-sm {
+  height: 30px;
+  border-radius: 50%;
+}
+
+p.lightbox-caption {
+  background-color: rgb(255, 255, 255);
+  border-bottom: 2px solid rgba(1, 1, 172, 0.956);
+  border-top: 2px solid rgba(2, 2, 131, 0.272);
+}
+
+em {
+  color: #000;
+}

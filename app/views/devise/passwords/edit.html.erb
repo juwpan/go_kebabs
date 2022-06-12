@@ -1,0 +1,35 @@
+<h2>Поменяйте ваш пароль</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f| %>
+
+<%= devise_error_messages! %>
+
+<%= f.hidden_field :reset_password_token %>
+
+<div class="form-group">
+  <%= f.label :password, t("label.new_password"), class: "col-sm-2 control-label mb-2" %>
+    <div class="col-sm-6">
+        <%= f.password_field :password, autocomplete: "off", class: "form-control mb-2" %>
+    </div>
+</div>
+
+<div class="foum-group mb-3">
+  <%= f.label :password_confirmation, t("label.confirm_new_password"), class: "col-sm-6 control-label mb-2" %>
+    <div class="col-sm-6">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+    </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-6 col-sm-offset-2">
+    <%= f.submit t("submit.change_password"), class: "btn btn-warning mb-2" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-6 col-sm-offset-2">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+
+<% end %>

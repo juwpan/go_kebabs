@@ -1,0 +1,25 @@
+<div class="buffer-bottom color-comments-user">
+  <p class="color-comments text-pre-line"><%= comment.body %></p>
+
+  <%# <div class="buffer-bottom-flex"> %>
+
+  <%# <div class="col-lg-10"> %>
+  <% if comment.user.present? %>
+    От: <%= render partial: 'users/user', object: comment.user %>
+  <% else %>
+    От: <strong><%= comment.user_name %></strong>
+  <% end %>
+  <em><%= l comment.created_at, format: :short %></em>
+  <%# </div> %>
+
+  <%# <span class="col-lg-1"> %>
+    <% if current_user_can_edit?(comment) %>
+      <%= link_to fa_icon('x-octagon-fill'), event_comment_path(comment.event, comment),
+        data: { turbo_method: :delete, turbo_confirm: t('.destroy_confirm') } %>
+    <% end %>
+  <%# </span> %>
+  <%# </div> %>
+  
+  <hr class="comments">
+
+</div>

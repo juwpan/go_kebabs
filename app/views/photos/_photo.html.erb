@@ -1,0 +1,11 @@
+<div class="column">
+  <div class="buffer-bottom-flex">
+
+  <% image_footer = "#{render partial: 'photos/photo_footer', locals: { photo: photo }}"%>
+  
+  <%= link_to image_tag(photo_variant(photo)), url_for(photo.photo),
+    data: { toggle: "lightbox", gallery: "example-gallery", caption: "Добавил: #{image_footer}" },
+    class: "img-fluid img-thumbnail" %>
+
+  </div>
+</div>
