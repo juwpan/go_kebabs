@@ -13,7 +13,7 @@ gem 'mailjet'
 
 gem "gravtastic"
 gem "sprockets-rails"
-gem "pg"
+# gem "pg"
 gem "puma"
 gem "jsbundling-rails"
 gem "turbo-rails"
@@ -21,7 +21,7 @@ gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "aws-sdk-s3"
 gem "image_processing"
-gem 'rails_12factor', group: :production
+# gem 'rails_12factor', group: :production
 gem 'turbo-rails'
 
 gem 'font-awesome-sass'
@@ -30,6 +30,11 @@ gem "carrierwave"
 gem "rmagick"
 
 gem "bootsnap", require: false
+
+group :production do
+  gem "pg"
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
