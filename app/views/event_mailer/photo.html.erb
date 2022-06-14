@@ -1,12 +1,13 @@
 <h1><%= t '.title' %></h1>
+
+<%= image_tag(@event.photos.last.photo, size: '260x100'  alt: 'Event Photo') %>
+
 <p><%= t '.author' %>: <strong><%= @name %></strong></p>
 
 <hr/>
 
-<%= t '.event' %>
-<h3><strong><h3><%= link_to @event.title, @event   %></strong></h3>
-<%= t '.datetime' %>
-<h4><%= l @event.datetime %></h4>
+<p><%= t '.event' %>: <strong><%= link_to @event.title, @event %></strong></p>
 
-<%= t '.owner' %>
-<h4><%= @event.user.name %></h4>
+<p><%= t '.datetime' %>: <strong><%= l @event.datetime %></strong></p>
+
+<p><%= t '.owner' %>: <strong><%= @event.user.name %></strong></p>
