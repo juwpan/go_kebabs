@@ -84,17 +84,14 @@
           </div>
         </div>
       <% end %>
-      
-      <div class="event-subscription-form">
-        <% unless current_user_can_edit?(@event) %>
-        <h5><em>Я пойду:</em></h5>
-        <div>
-          <%= render partial: 'subscriptions/form', locals: {
-            subscription: @new_subscription || @event.subscriptions.build
-          } %>
-        <% end %>
+
+      <% unless subscriptions_user?(@event, current_user) == true || current_user == @event.user %>
+        <div class="event-subscription-form">
+            <h5><em>Я пойду:</em></h5>
+            <%= render partial: 'subscriptions/form', locals: {
+              subscription: @new_subscription || @event.subscriptions.build
+            } %>
         </div>
-      </div>
-    </div>
+      <% end %>
   </div>
 </div>
