@@ -1,8 +1,8 @@
 <h1><%= t '.title' %></h1>
 
-<%= image_tag(@event.photos.last.photo, size: '260x100'  alt: 'Event Photo') %>
+<%= image_tag(@event.photos.last.photo.url,  size: '350x200') %>
 
-<p><%= t '.author' %>: <strong><%= @name %></strong></p>
+<p><%= t '.author' %>: <strong><%= @name.capitalize %></strong></p>
 
 <hr/>
 

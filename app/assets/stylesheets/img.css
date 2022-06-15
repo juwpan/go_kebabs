@@ -23,3 +23,8 @@ p.lightbox-caption {
 em {
   color: #000;
 }
+
+
+.img-size-mailer {
+  height: 350px;
+}
