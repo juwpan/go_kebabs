@@ -1,15 +1,26 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
-  before_action :set_user, only: [:show, :destroy]
+  before_action :set_user, only: [:show, :destroy, :create]
 
   before_action :set_current_user, except: [:show]
-
-
+  
   def show
   end
 
   def edit
   end
+
+  # def create
+  #   @user = User.new(user_params)
+
+  #   if @user.save
+  #     EventMailer.user(@user).deliver_now
+
+  #     redirect_to @user, notice: 'User was successfully created.'
+  #   else
+  #     render action: 'new'
+  #   end
+  # end
 
   def update
     if @user.update(user_params)
@@ -21,7 +32,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-      
+    
     redirect_to root_path, status: :see_other, alert: I18n.t('controllers.users.destroyed')
   end
 

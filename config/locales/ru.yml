@@ -47,6 +47,7 @@ ru:
     unsubscribe: отписатсья
     change_password: Сменить пароль
     edit_profile: Редактировать профиль
+    confirmable: Не получили инструкции по подтверждению?
 
   submit:
       send: Отправить
@@ -207,9 +208,11 @@ ru:
     mailer:
       confirmation_instructions:
         action: Активировать
-        greeting: Здравствуйте, %{recipient}!
+        greeting: Здравствуйте
         instruction: "Вы можете активировать свою учетную запись, нажав ссылку снизу:"
         subject: Инструкции по подтверждению учетной записи
+        body_confirmation_instructions: Вы можете подтвердить адрес электронной почты своей учетной записи по ссылке ниже
+        confirm_my_account: Подтвердить мой аккаунт
       email_changed:
         greeting: Здравствуйте, %{recipient}!
         message: Мы пытаемся связаться с вами, что бы сообщить, что ваша почта был изменен на %{email}.

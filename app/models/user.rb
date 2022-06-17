@@ -2,7 +2,7 @@ class User < ApplicationRecord
   include Gravtastic
 
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable
+  :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy

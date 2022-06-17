@@ -6,6 +6,13 @@ class EventMailer < ApplicationMailer
     mail(to: email, subject: default_i18n_subject(event: photo.event.title))
   end
 
+  def user(user)
+    @user = user.name
+    @url = 'localhost:3000'
+
+    mail(to: @user.email, subject: default_i18n_subject(event: user.name))
+  end
+
   def subscription(subscription)
     @email = subscription.user_email
     @name = subscription.user_name
