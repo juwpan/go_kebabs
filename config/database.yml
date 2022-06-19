@@ -81,6 +81,9 @@ test:
 #
 production:
   <<: *default
-  database: bbq_test_work_production
-  username: bbq_test_work
-  password: <%= ENV["BBQ_TEST_WORK_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  database: myapp
+  user: deploy
+  password: 1
