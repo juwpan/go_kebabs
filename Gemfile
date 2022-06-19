@@ -46,4 +46,8 @@ group :development, :test do
   gem 'capistrano-ssh-doctor', '~> 1.0'
 end
 
+gem 'net-ssh', '>= 6.0.2'
+gem 'ed25519', '>= 1.2', '< 2.0'
+gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+
 gem "redis", "~> 4.0"
