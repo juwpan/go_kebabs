@@ -44,6 +44,7 @@ group :development, :test do
   gem 'capistrano-rbenv', '~> 2.2'
   gem 'capistrano-bundler', '~> 2.0'
   gem 'capistrano-ssh-doctor', '~> 1.0'
+  gem 'capistrano-master-key', '~> 1.0.0'
 end
 
 gem 'net-ssh', '>= 6.0.2'

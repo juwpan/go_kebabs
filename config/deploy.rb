@@ -4,12 +4,13 @@ lock "~> 3.17.0"
 set :application, "copbygp"
 
 set :repo_url, "git@github.com:juwpan/juwpan_bbq.git"
+# set :master_key_local_path, "/home/deploy/bbq/releases/20220619192016/config/master.key"
 
 set :deploy_to, '/home/deploy/bbq'
 
 set :branch, 'main'
 
-append :linked_files, 'config/database.yml', 'config/credentials.yml.enc'
+append :linked_files, 'config/database.yml', 'config/credentials.yml.enc', 'config/master.key'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads'
 
 # Default branch is :master
@@ -41,7 +42,7 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bund
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
