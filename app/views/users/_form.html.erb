@@ -18,7 +18,7 @@
   </div>
 
   <div class="actions mt-3">
-    <%= f.submit t('submit.save'), class: 'btn btn-success' %>
+    <%= f.submit t('submit.save'), class: 'btn btn-success',  data: { turbo: false } %>
     <%= link_to t('links.back'), :back,  class: 'btn btn-secondary' %>
   </div>
 <% end %>

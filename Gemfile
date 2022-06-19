@@ -13,7 +13,7 @@ gem 'mailjet'
 
 gem "gravtastic"
 gem "sprockets-rails"
-# gem "pg"
+
 gem "puma"
 gem "jsbundling-rails"
 gem "turbo-rails"
@@ -21,7 +21,7 @@ gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "aws-sdk-s3"
 gem "image_processing"
-# gem 'rails_12factor', group: :production
+
 gem 'turbo-rails'
 
 gem 'font-awesome-sass'
@@ -39,6 +39,12 @@ end
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "letter_opener"
+
+  gem 'capistrano', '~> 3.10'
+  gem 'capistrano-rails', '~> 1.3'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-bundler', '~> 2.0'
 end
 
 gem "redis", "~> 4.0"

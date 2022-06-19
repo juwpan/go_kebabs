@@ -40,10 +40,10 @@
       <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
     </div>
   </div>
-
+  
   <div class="form-group mb-3 mt-2">
     <div class="col-sm-offset-2 col-sm-6">
-      <%= f.submit t("submit.update"), class: "btn btn-warning" %>
+      <%= f.submit t("submit.update"), class: "btn btn-warning", data: { turbo: false } %>
 
       <%= link_to t("links.delete_account"), @user,
           data: { turbo_method: "delete", turbo_confirm: t("are_you_sure") },
