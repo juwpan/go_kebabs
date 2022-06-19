@@ -5,7 +5,6 @@ set :application, "copbygp"
 
 set :repo_url, "git@github.com:juwpan/juwpan_bbq.git"
 
-
 set :deploy_to, '/home/deploy/www'
 
 append :linked_files, 'config/database.yml', 'config/credentials.yml.enc'

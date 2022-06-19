@@ -22,8 +22,6 @@ gem "cssbundling-rails"
 gem "aws-sdk-s3"
 gem "image_processing"
 
-gem 'turbo-rails'
-
 gem 'font-awesome-sass'
 
 gem "carrierwave"
@@ -43,8 +41,9 @@ group :development, :test do
   gem 'capistrano', '~> 3.10'
   gem 'capistrano-rails', '~> 1.3'
   gem 'capistrano-passenger'
-  gem 'capistrano-rvm', '~> 2.2'
+  gem 'capistrano-rbenv', '~> 2.2'
   gem 'capistrano-bundler', '~> 2.0'
+  gem 'capistrano-ssh-doctor', '~> 1.0'
 end
 
 gem "redis", "~> 4.0"
