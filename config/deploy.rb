@@ -4,7 +4,6 @@ lock "~> 3.17.0"
 set :application, "copbygp"
 
 set :repo_url, "git@github.com:juwpan/juwpan_bbq.git"
-# set :master_key_local_path, "/home/deploy/bbq/releases/20220619192016/config/master.key"
 
 set :deploy_to, '/home/deploy/bbq'
 
