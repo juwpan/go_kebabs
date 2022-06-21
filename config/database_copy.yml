@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: bbq_test_work_development
+
+test:
+  <<: *default
+  database: bbq_test_work_test
+
+production:
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  database: <%= Rails.application.credentials.dig(:DATABASE) %>
+  user: <%= Rails.application.credentials.dig(:user, :NAME) %>
+  password: <%= Rails.application.credentials.dig(:user, :PAS) %>
