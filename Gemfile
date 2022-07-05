@@ -21,6 +21,7 @@ gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "aws-sdk-s3"
 gem "image_processing"
+gem 'pundit', '~> 2.2.0'
 
 gem 'font-awesome-sass'
 

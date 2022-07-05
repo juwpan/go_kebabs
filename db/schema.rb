@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_17_154950) do
     t.datetime "datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.string "pincode"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
