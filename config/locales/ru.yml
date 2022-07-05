@@ -1,8 +1,8 @@
 ru:
 
   pundit:
-  not_authorized: 'Это не допустимо для вас!'
-
+    not_authorized: Вы не авторизованы!
+    
   path:
     root_path: На главную
     
@@ -177,7 +177,6 @@ ru:
         created: 'Вы добавили фотографию к событию'
         destroyed: 'Вы удалили фотку'
 
-     
   users:
     updated: 'Вы обновили свой профиль'
 

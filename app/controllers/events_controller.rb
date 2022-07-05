@@ -1,11 +1,11 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  
+
   before_action :password_guard!, only: [:show]
 
   # Предохранители
-  after_action :verify_authorized, except: [:index, :show]
+  after_action :verify_authorized, except: [:index, :show, :new, :create]
 
   
   def index
@@ -20,8 +20,6 @@ class EventsController < ApplicationController
 
   def new
     @event = current_user.events.build
-
-    authorize @event
   end
 
   def edit
@@ -31,8 +29,6 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
 
-    authorize @event
-
     if @event.save
       redirect_to @event, notice: I18n.t('controllers.events.created')
     else
@@ -41,17 +37,18 @@ class EventsController < ApplicationController
   end
 
   def update
+    authorize @event
+
     if @event.update(event_params)
       redirect_to @event, notice: I18n.t('controllers.events.updated')
     else
       render :edit
     end
-    authorize @event
   end
 
   def destroy
-    @event.destroy
     authorize @event
+    @event.destroy
     
     redirect_to events_url, status: :see_other, alert: I18n.t('controllers.events.destroyed')
   end
@@ -86,10 +83,6 @@ class EventsController < ApplicationController
     # .fetch разрешает в params отсутствие ключа :subscription
     params.fetch(:subscription, {}).permit(:user_email, :user_name)
   end
-
-  # def set_current_user_event
-  #   @event = current_user.events.find(params[:id])
-  # end
 
   def set_event
     @event = Event.find(params[:id])
