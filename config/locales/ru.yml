@@ -1,5 +1,8 @@
 ru:
 
+  pundit:
+  not_authorized: 'Это не допустимо для вас!'
+
   path:
     root_path: На главную
     

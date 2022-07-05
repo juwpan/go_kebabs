@@ -1,11 +1,10 @@
 <h1>События</h1>
-<div data-turbo="false">
   <div class="buffer-both">
-    <%= link_to t('links.create_event'), new_event_path, class: 'btn btn-success' %>
+    <% if policy(Event).create? %>
+      <%= link_to t('links.create_event'), new_event_path, class: 'btn btn-success', data: { tubo: false } %>
+    <% end %>
   </div>
 
   <div class="row buffer-bottom">
     <%= render partial: 'events/event', collection: @events %>
-</div>
-</div>
-
+  </div>
