@@ -1,7 +1,14 @@
 class EventPolicy < ApplicationPolicy
   def create?
     user.present?
-    # false
+  end
+
+  def update?
+    user_is_owner?(record)
+  end
+
+  def destroy?
+    user_is_owner?(record)
   end
   
   class Scope < Scope
@@ -9,5 +16,11 @@ class EventPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+  end
+
+  private
+
+  def user_is_owner?(event)
+    user.present?&&(event.try(:user) == user)
   end
 end
