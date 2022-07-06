@@ -8,8 +8,8 @@ local:
 
 yandex:
   service: S3
-  access_key_id: <%= Rails.application.credentials.dig(:yc, :access_key_id) %>
-  secret_access_key: <%= Rails.application.credentials.dig(:yc, :secret_access_key) %>
+  access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
   region: ru-central1
   bucket: juwpan-bbq
   endpoint: 'https://storage.yandexcloud.net'
