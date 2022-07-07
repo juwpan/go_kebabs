@@ -5,7 +5,7 @@ FactoryBot.define do
     title { "Эвент_#{rand(999)}" }
     description { "test _#{rand(999)}" }
     address { "Колхозная_#{rand(999)}" }
-
+    # pincode { rand(100) }
     datetime { Time.now }
   end
 end

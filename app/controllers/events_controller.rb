@@ -15,14 +15,13 @@ class EventsController < ApplicationController
       cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
     end
 
-    pincode = cookies.permanent["events_#{@event.id}_pincode"]
+    pincode = params[:pincode]
 
     authorize @event
 
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
     @new_photo = @event.photos.build(params[:photo])
-
 
     rescue Pundit::NotAuthorizedError
 

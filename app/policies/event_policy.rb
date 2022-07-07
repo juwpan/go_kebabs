@@ -30,7 +30,9 @@ class EventPolicy < ApplicationPolicy
   def password_guard!(event)
     return true if event.pincode.blank?
     return true if event.pincode.present? && user_is_owner?(event)
-    
+  
+    return true if event.pincode == (cookies["events_#{event.id}_pincode"])
+
     false
   end
 end
