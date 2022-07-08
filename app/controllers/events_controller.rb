@@ -1,11 +1,10 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: %i[show index]
+  before_action :set_event, only: %i[show edit update destroy]
 
   # Предохранители
-  after_action :verify_authorized, except: [:index, :new, :create]
+  after_action :verify_authorized, except: %i[index new create]
 
-  
   def index
     @events = Event.all
   end
@@ -22,15 +21,10 @@ class EventsController < ApplicationController
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
     @new_photo = @event.photos.build(params[:photo])
+  rescue Pundit::NotAuthorizedError
+    flash.now[:alert] = I18n.t('controllers.events.wrong_pincode') if params[:pincode].present?
 
-    rescue Pundit::NotAuthorizedError
-
-      unless @event.pincode_valid?(pincode)
-        if params[:pincode].present?
-          flash.now[:alert] = I18n.t('controllers.events.wrong_pincode')
-        end
-        render 'password_form'
-      end
+    render 'password_form'
   end
 
   def new
@@ -64,7 +58,7 @@ class EventsController < ApplicationController
   def destroy
     authorize @event
     @event.destroy
-    
+
     redirect_to events_url, status: :see_other, alert: I18n.t('controllers.events.destroyed')
   end
 
