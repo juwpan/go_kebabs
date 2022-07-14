@@ -8,7 +8,10 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 
 
-server '45.143.92.20', user: 'deploy', roles: %i[app db web]
+server '45.143.92.20', user: 'deploy', roles: %i[app db web resque_worker]
+
+set :resque_enviroment_task, true
+set :workers, { "#{fetch(:application)}*" => 3 }
 
 # role-based syntax
 # ==================

@@ -23,8 +23,12 @@ class User < ApplicationRecord
 
   after_commit :link_subscriptions, on: :create
 
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
+  
   private
-
+  
   def link_subscriptions
     Subscription.where(user_id: nil, user_email: self.email)
       .update_all(user_id: self.id)

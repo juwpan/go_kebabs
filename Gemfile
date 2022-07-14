@@ -6,6 +6,10 @@ ruby "3.0.2"
 gem "rails"
 gem "devise"
 gem "devise-i18n"
+
+gem 'omniauth', '~> 2.1.0'
+gem 'omniauth-vkontakte'
+
 gem "rails-i18n"
 
 gem 'dotenv-rails'
@@ -50,6 +54,7 @@ group :development, :test do
   gem 'launchy'
 
   gem 'capistrano', '~> 3.10'
+  gem "capistrano-resque", "~> 0.2.3", require: false
   gem 'capistrano-rails', '~> 1.3'
   gem 'capistrano-passenger'
   gem 'capistrano-rbenv', '~> 2.2'
@@ -58,8 +63,13 @@ group :development, :test do
   gem 'capistrano-master-key', '~> 1.0.0'
 end
 
+gem 'resque', '~> 2.2.1'
+
 gem 'net-ssh', '>= 6.0.2'
 gem 'ed25519', '>= 1.2', '< 2.0'
 gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 
-gem "redis", "~> 4.0"
+gem "redis", '~> 4.7.1'
+
+gem 'sidekiq'
+
