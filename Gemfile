@@ -63,13 +63,10 @@ group :development, :test do
   gem 'capistrano-master-key', '~> 1.0.0'
 end
 
-gem 'resque', '~> 2.2.1'
 
 gem 'net-ssh', '>= 6.0.2'
 gem 'ed25519', '>= 1.2', '< 2.0'
 gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 
+gem 'resque', '~> 2.2.1'
 gem "redis", '~> 4.7.1'
-
-gem 'sidekiq'
-

@@ -1,7 +1,7 @@
 class SubscriptionLetterJob < ApplicationJob
   queue_as :default
 
-  def perform(new_subscription)
-    EventMailer.subscription(new_subscription)
+  def perform(subscription)
+    EventMailer.subscription(subscription).deliver_now
   end
 end
