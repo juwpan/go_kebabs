@@ -1,4 +1,4 @@
-class SubscriptionLetterJob < ApplicationJob
+class SubscriptionSendLetterJob < ApplicationJob
   queue_as :default
 
   def perform(subscription)

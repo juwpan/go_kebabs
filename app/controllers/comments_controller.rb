@@ -10,8 +10,7 @@ class CommentsController < ApplicationController
     @new_comment.user = current_user
 
     if @new_comment.save
-      # уведомляем всех подписчиков о новом комментарии
-      notify_subscribers(@event, @new_comment)
+      CommentSendLetterJob.perform_later(@event, @new_comment)
 
       redirect_to @event, notice: I18n.t('controllers.comments.created')
     else
@@ -30,15 +29,6 @@ class CommentsController < ApplicationController
   end
 
   private
-
-  def notify_subscribers(event, comment)
-    # Собираем всех подписчиков и автора события в массив мэйлов, исключаем повторяющиеся
-    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email] - [comment.user&.email]).uniq
-    
-    all_emails.each do |mail|
-      CommentSendLetterJob.perform_later(comment, mail)
-    end
-  end
 
   def set_event
     @event = Event.find(params[:event_id])

@@ -14,11 +14,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription.user = current_user
   
     if @new_subscription.save
-      # Если сохранилось, отправляем письмо
-      # Пишем название класса, потом метода и передаём параметры
-      # И доставляем методом .deliver_now (то есть в этом же потоке)
-      # EventMailer.subscription(@new_subscription).deliver_now
-      SubscriptionLetterJob.perform_later(@new_subscription)
+      SubscriptionSendLetterJob.perform_later(@new_subscription)
       
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else

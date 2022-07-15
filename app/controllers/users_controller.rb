@@ -10,18 +10,6 @@ class UsersController < ApplicationController
   def edit
   end
 
-  # def create
-  #   @user = User.new(user_params)
-
-  #   if @user.save
-  #     EventMailer.user(@user).deliver_now
-
-  #     redirect_to @user, notice: 'User was successfully created.'
-  #   else
-  #     render action: 'new'
-  #   end
-  # end
-
   def update
     if @user.update(user_params)
       redirect_to @user, notice: I18n.t('controllers.users.updated')
