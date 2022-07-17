@@ -9,6 +9,7 @@ gem "devise-i18n"
 
 gem 'omniauth', '~> 2.1.0'
 gem 'omniauth-vkontakte'
+gem "omniauth-rails_csrf_protection"
 
 gem "rails-i18n"
 

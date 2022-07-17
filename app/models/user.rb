@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   include Gravtastic
-
+  
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable, :confirmable
+  :recoverable, :rememberable, :validatable, :confirmable,
+  :omniauthable, omniauth_providers: [:vkontakte]
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -26,7 +27,11 @@ class User < ApplicationRecord
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
   end
-  
+
+  def self.find_for_vkontakte_omniauth(access_token)
+    byebug
+  end
+
   private
   
   def link_subscriptions
