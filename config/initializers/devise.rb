@@ -316,15 +316,15 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   config.omniauth :github, Rails.application.credentials.dig(:github, :github_client_id),
-  Rails.application.credentials.dig(:github, :github_client_secret), scope:'user, public_repo'
+  Rails.application.credentials.dig(:github, :github_client_secret), :scope => 'user:email'
 
   config.omniauth :vkontakte, Rails.application.credentials.dig(:vk, :ID),
-  Rails.application.credentials.dig(:vk, :secret_key_defender), scope: 'friends, audio, photos, email'
+  Rails.application.credentials.dig(:vk, :secret_key_defender), { scope: 'friends, audio, photos, email' }
 
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   
-  OmniAuth.config.allowed_request_methods = [:get]
-  OmniAuth.config.silence_get_warning = true
+  # OmniAuth.config.allowed_request_methods = [:get]
+  # OmniAuth.config.silence_get_warning = true
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
