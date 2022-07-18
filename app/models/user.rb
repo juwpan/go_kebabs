@@ -28,11 +28,8 @@ class User < ApplicationRecord
     devise_mailer.send(notification, self, *args).deliver_later
   end
 
-  def self.create_from_provider_data(provider_data)
-    where(provider: provider_data.provider, url: provider_data.url).first_or_create  do |user|
-      user.email = provider_data.info.email
-      user.password = Devise.friendly_token[0, 20]
-    end
+  def self.find_for_vkontakte_omniauth(access_token)
+    byebug
   end
 
   private
