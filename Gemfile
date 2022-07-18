@@ -7,9 +7,9 @@ gem "rails"
 gem "devise"
 gem "devise-i18n"
 
-gem 'omniauth', '~> 1.9.1'
+gem 'omniauth'
 gem 'omniauth-vkontakte'
-gem 'omniauth-github', '~> 1.4.0'
+gem 'omniauth-github'
 # gem "omniauth-oauth2"
 # gem 'omniauth-rails_csrf_protection'
 

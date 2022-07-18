@@ -457,8 +457,8 @@ DEPENDENCIES
   letter_opener
   mailjet
   net-ssh (>= 6.0.2)
-  omniauth (~> 1.9.1)
-  omniauth-github (~> 1.4.0)
+  omniauth
+  omniauth-github
   omniauth-vkontakte
   pg
   puma
