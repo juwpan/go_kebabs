@@ -8,12 +8,13 @@ gem "devise"
 gem "devise-i18n"
 
 gem 'omniauth', '~> 2.1.0'
-gem 'omniauth-vkontakte'
-gem "omniauth-rails_csrf_protection"
+gem 'omniauth-vkontakte', '~> 1.8.0'
+gem 'omniauth-github', '~> 2.0.0'
+gem "omniauth-oauth2", '~> 1.7.1'
+gem 'omniauth-rails_csrf_protection', '~> 1.0.1'
 
 gem "rails-i18n"
 
-gem 'dotenv-rails'
 gem 'mailjet'
 
 gem "gravtastic"
@@ -45,6 +46,8 @@ end
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "letter_opener"
+
+  gem 'dotenv-rails', '~> 2.7.6'
 
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 6.0.0.rc1'

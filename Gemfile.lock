@@ -244,7 +244,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
-    oauth2 (2.0.5)
+    oauth2 (2.0.6)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
       multi_xml (~> 0.5)
@@ -255,9 +255,12 @@ GEM
       hashie (>= 3.4.6)
       rack (>= 2.2.3)
       rack-protection
-    omniauth-oauth2 (1.8.0)
-      oauth2 (>= 1.4, < 3)
+    omniauth-github (2.0.0)
       omniauth (~> 2.0)
+      omniauth-oauth2 (~> 1.7.1)
+    omniauth-oauth2 (1.7.3)
+      oauth2 (>= 1.4, < 3)
+      omniauth (>= 1.9, < 3)
     omniauth-rails_csrf_protection (1.0.1)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
@@ -275,7 +278,7 @@ GEM
       activesupport (>= 3.0.0)
     raabro (1.4.0)
     racc (1.6.0)
-    rack (2.2.3.1)
+    rack (2.2.4)
     rack-protection (2.2.0)
       rack
     rack-test (1.1.0)
@@ -447,7 +450,7 @@ DEPENDENCIES
   debug
   devise
   devise-i18n
-  dotenv-rails
+  dotenv-rails (~> 2.7.6)
   ed25519 (>= 1.2, < 2.0)
   factory_bot_rails
   font-awesome-sass
@@ -459,8 +462,10 @@ DEPENDENCIES
   mailjet
   net-ssh (>= 6.0.2)
   omniauth (~> 2.1.0)
-  omniauth-rails_csrf_protection
-  omniauth-vkontakte
+  omniauth-github (~> 2.0.0)
+  omniauth-oauth2 (~> 1.7.1)
+  omniauth-rails_csrf_protection (~> 1.0.1)
+  omniauth-vkontakte (~> 1.8.0)
   pg
   puma
   pundit (~> 2.2.0)
