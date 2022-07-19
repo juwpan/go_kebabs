@@ -65,6 +65,7 @@ group :development, :test do
   gem 'capistrano-bundler', '~> 2.0'
   gem 'capistrano-ssh-doctor', '~> 1.0'
   gem 'capistrano-master-key', '~> 1.0.0'
+  gem 'capistrano-rails-console', require: false
 end
 
 
