@@ -28,6 +28,19 @@ class User < ApplicationRecord
     devise_mailer.send(notification, self, *args).deliver_later
   end
 
+
+  # def self.create_from_provider_data_vk(auth)
+  #   provider = auth.provider
+  #   uid = auth.uid
+  #   info = auth.info.symbolize.keys!
+  #   user = User.find_or_initialize_by(uid: uid, provider: provider)
+  #   user.name = info.name
+  #   user.avatar_url = info.image
+  #   user.profile_url = info.urls.send(provider.capitalize.to_sym)
+  #   user.save!
+  #   user
+  # end
+
   def self.create_from_provider_data(provider_data)
     # Достаём email из токена
     email = provider_data.info.email
@@ -49,7 +62,6 @@ class User < ApplicationRecord
       user.email = email
       user.password = Devise.friendly_token.first(16)
       user.confirmed_at = Time.now.utc
-      # user.confirmed_at = Time.now
     end
   end
 

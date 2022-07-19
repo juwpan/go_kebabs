@@ -320,7 +320,7 @@ Devise.setup do |config|
 
   config.omniauth :vkontakte, Rails.application.credentials.dig(:vk, :ID),
   Rails.application.credentials.dig(:vk, :secret_key_defender),
-  scope: 'friends, audio, photos, email'
+  scope: 'email'
 
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   

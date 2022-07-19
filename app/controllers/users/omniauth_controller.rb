@@ -21,7 +21,9 @@ class Users::OmniauthController < Devise::OmniauthCallbacksController
   def vkontakte
     @user = User.create_from_provider_data(request.env['omniauth.auth'])
     if @user.persisted?
+      @user.skip_confirmation!
       sign_in_and_redirect @user
+      
       set_flash_message(:notice, :success, kind: 'Vk') if is_navigational_format?
     else
       flash[:error] = I18n.t(
