@@ -29,9 +29,26 @@ class User < ApplicationRecord
   end
 
   def self.create_from_provider_data(provider_data)
-    where(provider: provider_data.provider, uid: provider_data.uid).first_or_create  do |user|
-      user.email = provider_data.info.email
-      user.password = Devise.friendly_token[0, 20]
+    # Достаём email из токена
+    email = provider_data.info.email
+    user = where(email: email).first
+
+    # Возвращаем, если нашёлся
+    return user if user.present?
+
+    # Если не нашёлся, достаём провайдера, айдишник и uid
+    provider = provider_data.provider
+    id = provider_data.extra.raw_info.id
+    uid = "#{id}"
+
+    # Теперь ищем в базе запись по провайдеру и uid
+    # Если есть, то вернётся, если нет, то будет создана новая
+    where(uid: uid, provider: provider).first_or_create! do |user|
+      # Если создаём новую запись, прописываем email и пароль
+      user.name = provider_data.info.name
+      user.confirmed_at = Time.now
+      user.email = email
+      user.password = Devise.friendly_token.first(16)
     end
   end
 

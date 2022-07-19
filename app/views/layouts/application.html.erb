@@ -19,7 +19,7 @@
       <%# Для вывода названия приложения используем хелпер I18n.t %>
       <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
 
-      <div class="navbar-collapse navbar-brand">
+      <div class="navbar-brand">
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
             <li><%= link_to t('links.profile'), current_user, class: 'mr color' %></li>
@@ -30,6 +30,7 @@
           <% end %>
         </ul>
       </div>
+      
     </div>
   </div>
 
