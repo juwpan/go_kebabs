@@ -46,9 +46,10 @@ class User < ApplicationRecord
     where(uid: uid, provider: provider).first_or_create! do |user|
       # Если создаём новую запись, прописываем email и пароль
       user.name = provider_data.info.name
-      user.confirmed_at = Time.now
       user.email = email
       user.password = Devise.friendly_token.first(16)
+      user.confirmed_at = Time.now.utc
+      # user.confirmed_at = Time.now
     end
   end
 
