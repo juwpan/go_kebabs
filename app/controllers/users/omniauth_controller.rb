@@ -1,14 +1,14 @@
 class Users::OmniauthController < Devise::OmniauthCallbacksController
   def github
-    omniauth "Github"
+    omniauth("Github")
   end
   
   def mail_ru
-    omniauth "Mail"
+    omniauth("Mail")
   end
 
   def google_oauth2
-    omniauth "Google"
+    omniauth("Google")
   end
 
   private
@@ -24,10 +24,10 @@ class Users::OmniauthController < Devise::OmniauthCallbacksController
       flash[:error] = I18n.t(
       'devise.omniauth_callbacks.failure',
       kind: kind,
-      eason: 'authentication error'
+      reason: 'authentication error'
       )
 
-    redirect_to new_user_registration_url
+      redirect_to new_user_registration_url
     end
   end
 end

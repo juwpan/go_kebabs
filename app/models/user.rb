@@ -24,10 +24,6 @@ class User < ApplicationRecord
 
   after_commit :link_subscriptions, on: :create
 
-  def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later
-  end
-
   def self.create_from_provider_data(provider_data)
     # Достаём email из токена
     email = provider_data.info.email
@@ -39,17 +35,22 @@ class User < ApplicationRecord
     # Если не нашёлся, достаём провайдера, айдишник и uid
     provider = provider_data.provider
     id = provider_data.extra.raw_info.id
-    uid = "#{id}"
+    uid = id
 
     # Теперь ищем в базе запись по провайдеру и uid
     # Если есть, то вернётся, если нет, то будет создана новая
     where(uid: uid, provider: provider).first_or_create! do |user|
       # Если создаём новую запись, прописываем email и пароль
       user.name = provider_data.info.name
+      user.avatar = provider_data.info.avatar
       user.email = email
       user.password = Devise.friendly_token.first(16)
       user.confirmed_at = Time.now.utc
     end
+  end
+
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
   end
 
   private
