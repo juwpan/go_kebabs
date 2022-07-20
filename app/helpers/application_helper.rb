@@ -24,10 +24,6 @@ module ApplicationHelper
     content_tag 'span', '', class: "bi bi-#{icon_class} btn-outline-dark"
   end
 
-  def fa_icon_authorize(icon_class)
-    content_tag 'span', '', class: "bi bi-#{icon_class} btn-outline-dark"
-  end
-
   def resources_name
     :user
   end

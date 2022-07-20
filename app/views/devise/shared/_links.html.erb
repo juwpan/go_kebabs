@@ -18,17 +18,21 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
+<div class="mt-5">
+  <div class="btn-omniauth mr-1">
+    <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <% case provider %>
+        <% when :google_oauth2 %>
+          <div class="btn-indent"><%= link_to image_tag('google1.png'), omniauth_authorize_path(resource_name, provider) %></div>
+        <% when :mail_ru %>
+          <div class="btn-indent"><%= link_to image_tag('mail1.png'), omniauth_authorize_path(resource_name, provider) %></div>
+        <% when :github %>
+          <div class="btn-indent"><%= link_to image_tag('git1.png'), omniauth_authorize_path(resource_name, provider) %></div>
+        <% end  %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-  <% case provider %>
-  <% when :google_oauth2 %>
-    <%= link_to fa_icon_authorize('google'), omniauth_authorize_path(resource_name, provider)%><br />
-  <% when :mail_ru %>
-    <%= link_to fa_icon_authorize('google'), omniauth_authorize_path(resource_name, provider)%><br />
-  <% when :github %>
-    <%= link_to fa_icon_authorize('google'), omniauth_authorize_path(resource_name, provider)%><br />
-  <% end  %>
-  <% end %>
-<% end %>
 

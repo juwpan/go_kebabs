@@ -1,3 +1,13 @@
 .btn-circle {
   border-radius: 10px;
 }
+
+.btn-omniauth{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-indent {
+  margin-right: 1em;
+  height: 100px;
+}

@@ -36,6 +36,7 @@ gem 'font-awesome-sass'
 
 gem "carrierwave"
 gem "rmagick"
+gem 'sass-rails'
 
 gem "bootsnap"
 

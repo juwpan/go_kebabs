@@ -388,8 +388,16 @@ GEM
     ruby2_keywords (0.0.5)
     rufus-scheduler (3.6.0)
       fugit (~> 1.1, >= 1.1.6)
+    sass-rails (6.0.0)
+      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
     sinatra (2.2.0)
@@ -486,6 +494,7 @@ DEPENDENCIES
   rmagick
   rspec-rails (~> 6.0.0.rc1)
   rubocop (~> 1.31.0)
+  sass-rails
   shoulda-matchers
   sprockets-rails
   sqlite3 (~> 1.4)
