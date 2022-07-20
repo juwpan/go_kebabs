@@ -3,7 +3,7 @@ class User < ApplicationRecord
   
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable, :confirmable,
-  :omniauthable, omniauth_providers: [:vkontakte, :github]
+  :omniauthable, omniauth_providers: [:vkontakte, :github, :google_oauth2]
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -27,19 +27,6 @@ class User < ApplicationRecord
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
   end
-
-
-  # def self.create_from_provider_data_vk(auth)
-  #   provider = auth.provider
-  #   uid = auth.uid
-  #   info = auth.info.symbolize.keys!
-  #   user = User.find_or_initialize_by(uid: uid, provider: provider)
-  #   user.name = info.name
-  #   user.avatar_url = info.image
-  #   user.profile_url = info.urls.send(provider.capitalize.to_sym)
-  #   user.save!
-  #   user
-  # end
 
   def self.create_from_provider_data(provider_data)
     # Достаём email из токена

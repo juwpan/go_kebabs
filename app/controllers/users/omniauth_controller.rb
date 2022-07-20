@@ -1,43 +1,33 @@
 class Users::OmniauthController < Devise::OmniauthCallbacksController
   def github
-    @user = User.create_from_provider_data(request.env['omniauth.auth'])
-    
-    if @user.persisted?
-      @user.skip_confirmation!
-      sign_in_and_redirect @user
-      
-      set_flash_message(:notice, :success, kind: 'Github') if is_navigational_format?
-    else
-      flash[:error] = I18n.t(
-      'devise.omniauth_callbacks.failure',
-      kind: 'Github',
-      eason: 'authentication error'
-      )
-
-    redirect_to new_user_registration_url
-    end
+    omniauth "Github"
   end
 
   def vkontakte
+    omniauth "Vkontakte"
+  end
+
+  def google_oauth2
+    omniauth "Google"
+  end
+
+  private
+
+  def omniauth(kind)
     @user = User.create_from_provider_data(request.env['omniauth.auth'])
     if @user.persisted?
       @user.skip_confirmation!
       sign_in_and_redirect @user
       
-      set_flash_message(:notice, :success, kind: 'Vk') if is_navigational_format?
+      set_flash_message(:notice, :success, kind: kind ) if is_navigational_format?
     else
       flash[:error] = I18n.t(
       'devise.omniauth_callbacks.failure',
-      kind: 'Vkontakte',
+      kind: kind,
       eason: 'authentication error'
       )
 
     redirect_to new_user_registration_url
     end
   end
-    
-  # def failure
-  #   flash[:error] = 'There was a problem signing you in. Please register or try signing in later.'
-  #   redirect_to new_user_registration_url
-  # end
 end

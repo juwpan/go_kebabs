@@ -7,10 +7,10 @@ gem "rails"
 gem "devise"
 gem "devise-i18n"
 
-gem 'omniauth'
-gem 'omniauth-vkontakte'
-gem 'omniauth-github'
-# gem "omniauth-oauth2"
+gem 'omniauth', '~> 2.1.0'
+gem 'omniauth-vkontakte','~> 1.8.0'
+gem 'omniauth-github','~> 2.0.0'
+gem 'omniauth-google-oauth2'
 # gem 'omniauth-rails_csrf_protection'
 
 gem "rails-i18n"
@@ -69,7 +69,7 @@ group :development, :test do
 end
 
 
-gem 'net-ssh', '>= 6.0.2'
+gem 'net-ssh', '>= 6.1.0'
 gem 'ed25519', '>= 1.2', '< 2.0'
 gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 
