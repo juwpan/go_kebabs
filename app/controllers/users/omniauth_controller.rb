@@ -2,9 +2,9 @@ class Users::OmniauthController < Devise::OmniauthCallbacksController
   def github
     omniauth "Github"
   end
-
-  def vkontakte
-    omniauth "Vkontakte"
+  
+  def mail_ru
+    omniauth "Mail"
   end
 
   def google_oauth2

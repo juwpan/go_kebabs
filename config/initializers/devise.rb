@@ -318,11 +318,15 @@ Devise.setup do |config|
   config.omniauth :github, Rails.application.credentials.dig(:github, :github_client_id),
   Rails.application.credentials.dig(:github, :github_client_secret), scope:'user, public_repo'
 
-  config.omniauth :vkontakte, Rails.application.credentials.dig(:vk, :ID),
-  Rails.application.credentials.dig(:vk, :secret_key_defender), scope: 'email'
+  # config.omniauth :vkontakte, Rails.application.credentials.dig(:vk, :ID),
+  # Rails.application.credentials.dig(:vk, :secret_key_defender), scope: 'email'
 
   config.omniauth :google_oauth2, Rails.application.credentials.dig(:google, :google_client_id),
   Rails.application.credentials.dig(:google, :google_client_secret)
+
+  config.omniauth :mail_ru, Rails.application.credentials.dig(:mail, :mail_client_id),
+  Rails.application.credentials.dig(:mail, :mail_client_secret),
+  callback_url: Rails.application.credentials.dig(:mail, :callback_url)
 
 
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'

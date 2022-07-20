@@ -265,6 +265,8 @@ GEM
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
       omniauth-oauth2 (>= 1.6)
+    omniauth-mail_ru (1.2.0)
+      omniauth-oauth2 (>= 1.0)
     omniauth-oauth2 (1.7.3)
       oauth2 (>= 1.4, < 3)
       omniauth (>= 1.9, < 3)
@@ -471,6 +473,7 @@ DEPENDENCIES
   omniauth (~> 2.1.0)
   omniauth-github (~> 2.0.0)
   omniauth-google-oauth2
+  omniauth-mail_ru
   omniauth-vkontakte (~> 1.8.0)
   pg
   puma
