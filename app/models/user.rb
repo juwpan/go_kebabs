@@ -1,4 +1,3 @@
-require 'open-uri'
 class User < ApplicationRecord
   include Gravtastic
   

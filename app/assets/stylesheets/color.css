@@ -1,26 +1,26 @@
-body {
-  background: rgba(237, 237, 237, 0.314) url('background.png') center center fixed no-repeat;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  background-size: cover;
-}
-
 .fotter-color {
   background-color: rgba(0, 0, 0, 0.699);
   border-bottom: 1px solid rgb(117, 113, 113);
 }
 
 a.color {
-  color: rgb(255, 255, 255);
+  color: rgb(34, 66, 51);
 }
 
 a.title-color {
   color: rgba(156, 220, 17, 0.816);
 }
 
+a.title-color:hover {
+  color: rgba(255, 255, 255, 0.816);
+}
+
 a.navbar-brand {
   color: rgb(255, 255, 255);
+}
+
+a.navbar-brand:hover {
+  color: rgba(156, 220, 17, 0.816);
 }
 
 .img-color-dark {

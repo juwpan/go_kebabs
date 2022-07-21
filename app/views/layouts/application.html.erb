@@ -14,44 +14,47 @@
 </head>
 
 <body>
-  <div class="navbar navbar-expand-lg fotter-color mb-3">
-    <div class="container">
-      <%# Для вывода названия приложения используем хелпер I18n.t %>
-      <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
+  <div class="wrapper">
+    <div class="navbar navbar-expand-lg fotter-color mb-3">
+      <div class="container">
+        <%# Для вывода названия приложения используем хелпер I18n.t %>
+        <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
 
-      <div class="navbar-brand">
-        <ul class="nav navbar-nav">
-          <% if user_signed_in? %>
-            <li><%= link_to t('links.profile'), current_user, class: 'mr color navbar-brand' %></li>
-            <li><%= link_to t('links.log_out'), destroy_user_session_path, :method => :delete, class: 'color navbar-brand'%></li>
-          <% else %>
-            <li><%= link_to t('links.log_in'), new_user_session_path , class: 'mr color navbar-brand'%></li>
-            <li><%= link_to t('links.sign_up'), new_user_registration_path, class: 'color navbar-brand' %></li>
-          <% end %>
-        </ul>
+        <div class="navbar-brand">
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <li><%= link_to t('links.profile'), current_user, class: 'mr color navbar-brand' %></li>
+              <li><%= link_to t('links.log_out'), destroy_user_session_path, :method => :delete, class: 'color navbar-brand'%></li>
+            <% else %>
+              <li><%= link_to t('links.log_in'), new_user_session_path , class: 'mr color navbar-brand'%></li>
+              <li><%= link_to t('links.sign_up'), new_user_registration_path, class: 'color navbar-brand' %></li>
+            <% end %>
+          </ul>
+        </div>
+        
       </div>
-      
     </div>
-  </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-11">
+    <div class="container container-flex">
+      <div class="row">
+        <div class="col-lg-11">
 
-        <%= render "devise/shared/flash" %>
-        
-      <%= yield %>
-        
+          <%= render "devise/shared/flash" %>
+          
+        <%= yield %>
+          
+        </div>
+          <div class="col-lg-1">
+        </div>
+
+
+      
       </div>
-        <div class="col-lg-1">
-      </div>
-
+    </div>
 
     <div class="footer-gp">
       <%# Для вывода названия компании используем хелпер I18n.t %>
       <p><%= link_to "@#{t('app.company')}", 'https://goodprogrammer.ru' %> 2016</p>
-    </div>
-    
     </div>
   </div>
 </body>
