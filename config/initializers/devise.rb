@@ -316,7 +316,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   config.omniauth :github, Rails.application.credentials.dig(:github, :github_client_id),
-  Rails.application.credentials.dig(:github, :github_client_secret), scope:'user, public_repo, image'
+  Rails.application.credentials.dig(:github, :github_client_secret), scope:'user, public_repo'
 
   # config.omniauth :vkontakte, Rails.application.credentials.dig(:vk, :ID),
   # Rails.application.credentials.dig(:vk, :secret_key_defender), scope: 'email'
