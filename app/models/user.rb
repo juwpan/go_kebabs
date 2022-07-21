@@ -1,3 +1,4 @@
+require 'open-uri'
 class User < ApplicationRecord
   include Gravtastic
   
@@ -16,7 +17,7 @@ class User < ApplicationRecord
 
   gravtastic(secure: true, filetype: :png, size: 100, default: 'wavatar')
 
-  validates :name, presence: true, length: {maximum: 35}
+  validates :name, presence: true, length: {maximum: 350}
   
   validates :email, length: {maximum: 255}
   validates :email, uniqueness: true
@@ -42,7 +43,8 @@ class User < ApplicationRecord
     where(uid: uid, provider: provider).first_or_create! do |user|
       # Если создаём новую запись, прописываем email и пароль
       user.name = provider_data.info.name
-      user.avatar = provider_data.info.avatar
+      user.avatar.attach(io: URI.open(provider_data.info.image), filename: 'avatar.jpg')
+      
       user.email = email
       user.password = Devise.friendly_token.first(16)
       user.confirmed_at = Time.now.utc
