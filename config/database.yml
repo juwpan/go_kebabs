@@ -11,10 +11,16 @@ test:
   <<: *default
   database: bbq_test_work_test
 
+# production:
+#   adapter: postgresql
+#   host: localhost
+#   port: 5432
+#   database: <%= Rails.application.credentials.dig(:user_bbq, :DATABASE) %>
+#   user: <%= Rails.application.credentials.dig(:user_bbq, :NAME) %>
+#   password: <%= Rails.application.credentials.dig(:user_bbq, :PASSWORD) %>
+
 production:
-  adapter: postgresql
-  host: localhost
-  port: 5432
-  database: <%= Rails.application.credentials.dig(:user_bbq, :DATABASE) %>
-  user: <%= Rails.application.credentials.dig(:user_bbq, :NAME) %>
-  password: <%= Rails.application.credentials.dig(:user_bbq, :PASSWORD) %>
+  <<: *default
+  database: bbq_test_work_production
+  username: bbq_test_work
+  password: <%= ENV["BBQ_TEST_WORK_DATABASE_PASSWORD"] %>
