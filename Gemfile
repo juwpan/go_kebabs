@@ -41,7 +41,6 @@ gem "bootsnap"
 
 group :production do
   gem "pg"
-  # gem 'rails_12factor'
   gem "puma"
 end
 
@@ -49,7 +48,6 @@ end
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "letter_opener"
-
 
   gem 'dotenv-rails', '~> 2.7.6'
 
