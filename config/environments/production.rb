@@ -4,7 +4,8 @@ Rails.application.configure do
   config.hosts << 'gokebabs-app-bbq-juwpan.up.railway.app'
 
   config.active_job.queue_adapter = :async
-  config.active_job.queue_name_prefix = "bbqletter _#{Rails.env}"
+  # config.active_job.queue_adapter     = :resque
+  config.active_job.queue_name_prefix = "gokebabs_#{Rails.env}"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -63,8 +64,6 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
-  # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "bbq_test_work_production"
 
   config.action_mailer.perform_caching = false
 
@@ -96,11 +95,8 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
-  # config.action_mailer.delivery_method = :mailjet
   # config.action_mailer.default_url_options = { host: 'copbygp.ru' }
-  # config.action_mailer.raise_delivery_errors = false
-  # config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :mailjet
   # config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :mailjet
   config.action_mailer.default_url_options = { host: 'gokebabs-app-bbq-juwpan.up.railway.app' }
 end

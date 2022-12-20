@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.2"
+ruby "3.0.2"
 
 gem "rails"
 
@@ -47,7 +47,7 @@ end
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "letter_opener"
+  gem 'letter_opener'
 
   gem 'dotenv-rails', '~> 2.7.6'
 
@@ -55,9 +55,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.0.rc1'
   gem 'rubocop', '~> 1.31.0'
   gem 'shoulda-matchers'
-  gem 'sqlite3', '~> 1.4'
   gem 'capybara'
   gem 'launchy'
+
+  gem 'sqlite3', '~> 1.4'
 
   gem 'capistrano', '~> 3.10'
   gem "capistrano-resque", "~> 0.2.3", require: false
@@ -70,10 +71,10 @@ group :development, :test do
   gem 'capistrano-rails-console', require: false
 end
 
-
 gem 'net-ssh', '>= 6.1.0'
 gem 'ed25519', '>= 1.2', '< 2.0'
 gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 
-gem 'resque', '~> 2.2.1'
-gem "redis", '~> 4.7.1'
+# gem 'sidekiq', '~> 6.5.5'
+gem 'resque', '~> 2.4.0'
+gem 'redis', '~> 5.0.5'

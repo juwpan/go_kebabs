@@ -22,6 +22,4 @@ test:
 production:
   <<: *default
   url: <%= ENV["DATABASE_URL"] %>
-  # database: bbq_test_work_production
-  # username: bbq_test_work
-  # password: <%= ENV["BBQ_TEST_WORK_DATABASE_PASSWORD"] %>
+
