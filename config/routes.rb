@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # Для запуска Resque сервера
+  # require 'resque/server'
+  # mount Resque::Server, at: '/jobs'
+
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth" }
 
   root "events#index"

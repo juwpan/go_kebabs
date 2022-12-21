@@ -28,7 +28,7 @@ module BbqTestWork
     config.i18n.default_locale = :ru
     config.generators.system_tests = nil
     # config.action_mailer.delivery_method = :mailjet
-    config.action_mailer.delivery_method = :sendmail
+    # config.action_mailer.delivery_method = :sendmail
     # config.active_job.queue_adapter = :sidekiq
     config.active_job.queue_adapter = :resque
   end
