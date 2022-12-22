@@ -1,4 +1,4 @@
 web: rake db:migrate && bin/rails server -b 0.0.0.0 -p ${PORT:-3000}
-worker: QUEUE=* rake resque:work
+job: bundle exec rake resque:work QUEUE=*
 js: yarn build --watch
 css: yarn build:css --watch

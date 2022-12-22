@@ -3,8 +3,8 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   config.hosts << 'gokebabs-app-bbq-juwpan.up.railway.app'
 
-  # config.active_job.queue_adapter = :async
-  config.active_job.queue_adapter     = :resque
+  config.active_job.queue_adapter = :async
+  # config.active_job.queue_adapter     = :resque
   config.active_job.queue_name_prefix = "gokebabs_#{Rails.env}"
   # Settings specified here will take precedence over those in config/application.rb.
 

@@ -78,3 +78,6 @@ gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 # gem 'sidekiq', '~> 6.5.5'
 gem 'resque', '~> 2.4.0'
 gem 'redis', '~> 5.0.5'
+
+gem 'foreman'
+gem 'thin'
