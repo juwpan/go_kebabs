@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
         extra: double(raw_info: double(id: '10213477015136709'))
       )
     end
-
+    
     # Ситуация: пользователь не найден
     context 'when user is not found' do
       it 'returns newly created user' do
