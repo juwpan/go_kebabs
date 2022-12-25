@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
         extra: double(raw_info: double(id: '10213477015136709'))
       )
     end
-
+    
     # Ситуация: пользователь не найден
     context 'when user is not found' do
       it 'returns newly created user' do
@@ -29,6 +29,7 @@ RSpec.describe User, type: :model do
       let!(:existing_user) { create(:user, email: 'juwpan@gmail.com') }
       let!(:some_other_user) { create(:user) }
 
+      
       it 'returns this user' do
         expect(User.create_from_provider_data(access_token)).to eq existing_user
       end
