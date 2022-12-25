@@ -93,3 +93,6 @@ rails s
 - Авторизация с помощью pundit
 - Локализация(i18n)
 - Отправка почты(mailjet)
+- Очередб задач.Resque(В процессе)
+
+![CI](https://github.com/juwpan/go_kebabs/actions/workflows/ci.yml/badge.svg)

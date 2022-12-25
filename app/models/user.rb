@@ -51,7 +51,7 @@ class User < ApplicationRecord
   end
 
   def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).perform_later
+    devise_mailer.send(notification, self, *args)
   end
 
 
