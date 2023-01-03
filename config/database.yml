@@ -8,14 +8,14 @@ default: &default
 
 development:
   <<: *default
-  database: myapp_development
+  database: bbq_development
 
 test:
   <<: *default
-  database: myapp_test
+  database: bbq_test
 
 production:
   <<: *default
+  database: bbq_production
   password: <%= ENV["POSTGRES_PASSWORD"] %>
-  database: myapp_production
   url: <%= ENV["DATABASE_URL"] %>

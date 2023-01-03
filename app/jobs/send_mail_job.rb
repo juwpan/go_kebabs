@@ -7,11 +7,11 @@ class SendMailJob < ApplicationJob
 
     case model
     when Subscription
-      EventMailer.subscription(model).deliver_later
+      EventMailer.subscription(model).deliver_now
     when Comment
-      all_emails.each { |mail| EventMailer.comment(model, mail).deliver_later }
+      all_emails.each { |mail| EventMailer.comment(model, mail).deliver_now }
     when Photo
-      all_emails.each { |mail| EventMailer.photo(model, mail).deliver_later }
+      all_emails.each { |mail| EventMailer.photo(model, mail).deliver_now }
     end
   end
 end

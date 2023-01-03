@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   include Gravtastic
-  
+
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable, :confirmable,
-  :omniauthable, omniauth_providers: [:mail_ru, :github, :google_oauth2]
+         :recoverable, :rememberable, :validatable, :confirmable,
+         :omniauthable, omniauth_providers: %i[mail_ru github google_oauth2]
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -16,9 +16,9 @@ class User < ApplicationRecord
 
   gravtastic(secure: true, filetype: :png, size: 100, default: 'wavatar')
 
-  validates :name, presence: true, length: {maximum: 350}
-  
-  validates :email, length: {maximum: 255}
+  validates :name, presence: true, length: { maximum: 350 }
+
+  validates :email, length: { maximum: 255 }
   validates :email, uniqueness: true
   validates :email, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/
 
@@ -43,22 +43,23 @@ class User < ApplicationRecord
       # Если создаём новую запись, прописываем email и пароль
       user.name = provider_data.info.name
       user.avatar.attach(io: URI.open(provider_data.info.image), filename: 'avatar.jpg')
-      
+
       user.email = email
       user.password = Devise.friendly_token.first(16)
       user.confirmed_at = Time.now.utc
     end
   end
 
-  def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args)
-  end
-
-
+  
   private
   
+  def send_devise_notification(notification, *args)
+    message = devise_mailer.send(notification, self, *args)
+    message.deliver_now
+  end
+
   def link_subscriptions
-    Subscription.where(user_id: nil, user_email: self.email)
-      .update_all(user_id: self.id)
+    Subscription.where(user_id: nil, user_email: email)
+                .update_all(user_id: id)
   end
 end
