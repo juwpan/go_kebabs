@@ -1,10 +1,15 @@
-name: CI
+name: deploy
 
 on: [push]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  rspec:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        ruby: [3.0.2]
+    runs-on: ${{ matrix.os }}
     services:
       postgres:
         image: postgres:latest
@@ -15,17 +20,21 @@ jobs:
           POSTGRES_USER: kebab
           POSTGRES_PASSWORD: 1234
     steps:
-      - uses: actions/checkout@v2
+      - name: Get repository code
+        uses: actions/checkout@v3
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0.2
+          ruby-version: ${{ matrix.ruby }}
       - name: Install dependencies
-        run: bundle install --jobs 4 --retry 3
+        run: bundle install
       - name: Set up database
         run: bundle exec rails db:setup
-      # - name: Run FactoryBot setup
-      #   run: bundle exec rails generate factory_bot:install
       - name: Run tests
-        run: bundle exec rspec spec/policies
-
+        run: bundle exec rspec
+  deploy:
+    runs-on: ubuntu-latest
+    needs: rspec
+    steps:
+      - name: Result deploy
+        run: echo Deploy good
