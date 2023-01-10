@@ -54,8 +54,7 @@ class User < ApplicationRecord
   private
   
   def send_devise_notification(notification, *args)
-    message = devise_mailer.send(notification, self, *args)
-    message.deliver_now
+    devise_mailer.send(notification, self, *args).deliver_later
   end
 
   def link_subscriptions
